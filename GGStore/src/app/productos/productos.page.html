@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>productos</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title color="light">Videojuegos Disponibles</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background" color="medium">
+
+  <ion-list>
+
+    <ion-item class="background" color="medium" *ngFor="let p of productos" [routerLink] = "['/productos', p.id ]">
+
+        <ion-avatar slot="start">
+          <ion-img [src]="p.imagenURL"></ion-img>
+        </ion-avatar>
+
+        <ion-label>{{p.nombre}}</ion-label>
+
+      </ion-item>
+
+  </ion-list>
+
+  <ion-fab vertical = "bottom" horizontal = "end" slot = "fixed">
+    <ion-fab-button color = "dark" (click)="RedirectAgregar()">
+      <ion-icon name="medkit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

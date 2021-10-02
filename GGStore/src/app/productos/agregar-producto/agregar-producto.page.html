@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/productos"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Agregar Videojuego</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" color="medium">
+
+  <ion-row>
+    <ion-col>
+      <ion-card-content>
+        <ion-input type="text" placeholder="Ingrese el Nombre" #nombre></ion-input>
+        <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>
+        <ion-input type="text" placeholder="Ingrese el año de salida" #anio></ion-input>
+        <ion-input type="text" placeholder="Ingrese el Género del Juego" #genero></ion-input>
+        <ion-input type="text" placeholder="Ingrese la desarrolladora" #desarrolladora></ion-input>
+        <ion-input type="text" placeholder="Ingrese la distribuidora" #distribuidora></ion-input>
+        <ion-input type="text" placeholder="Ingrese un comentario" #comentario></ion-input>
+        <ion-button color = "dark" (click)="agregarProducto(nombre,url,anio,desarrolladora,distribuidora,comentario)"> Agregar </ion-button>
+      </ion-card-content>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

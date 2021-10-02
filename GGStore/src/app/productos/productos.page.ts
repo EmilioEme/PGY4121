@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from './productos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosPage implements OnInit {
 
-  constructor() { }
+  private productos = []
+
+  constructor(private serviceProd: ProductosService , private router: Router) { }
 
   ngOnInit() {
+    this.productos = this.serviceProd.getProductos();
+  }
+
+  ionViewWillEnter(){
+    this.productos = this.serviceProd.getProductos();
+  }
+
+  RedirectAgregar(){
+    console.log('funciona!')
+    this.router.navigate(['/agregar-producto'])
   }
 
 }
