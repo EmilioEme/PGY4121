@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ProductosPage implements OnInit {
 
   private productos = []
+  
 
   constructor(private serviceProd: ProductosService , private router: Router) { }
 
@@ -24,6 +25,9 @@ export class ProductosPage implements OnInit {
   RedirectAgregar(){
     console.log('funciona!')
     this.router.navigate(['/agregar-producto'])
+  }
+  volverHome(){
+    this.router.navigate(['/home'])
   }
 
 }

@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content class="background" color="medium">
-
-  <ion-list>
+  
+  <ion-list class="dark-bg">
 
     <ion-item class="background" color="medium" *ngFor="let p of productos" [routerLink] = "['/productos', p.id ]">
 
@@ -23,6 +23,12 @@
   <ion-fab vertical = "bottom" horizontal = "end" slot = "fixed">
     <ion-fab-button color = "dark" (click)="RedirectAgregar()">
       <ion-icon name="medkit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical = "bottom" horizontal = "start" slot = "fixed">
+    <ion-fab-button color = "dark" (click)="volverHome()">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

@@ -15,8 +15,10 @@ export class AgregarProductoPage implements OnInit {
   }
 
   agregarProducto(nombre,url,anio,genero,desarrolladora,distribuidora, comentario){
+    var lista = comentario.value.split(",")
+    var listaGenero = genero.value.split(",")
 
-    this.productoServicio.addProductos(nombre.value ,url,anio.value,genero.value,desarrolladora.value,distribuidora.value, comentario);
+    this.productoServicio.addProductos(nombre.value ,url.value,anio.value,listaGenero,desarrolladora.value,distribuidora.value, lista);
     this.router.navigate(['/productos'])
   }
 }

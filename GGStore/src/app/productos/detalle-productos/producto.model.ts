@@ -3,7 +3,7 @@ export interface Producto{
     nombre: string;
     imagenURL : string;
     anio : string;
-    genero : string;
+    genero : string[];
     desarrolladora : string;
     distribuidora : string;
     comentarios : string[];
