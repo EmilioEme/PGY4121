@@ -1,29 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title color="light">Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
-  <ion-menu side="start" type="push" contentId="main">
+
+<ion-content class="fondo">
+
+  
+
+  <ion-menu class="menu"  side="start" type="push" contentId="main">
     <ion-header>
       <ion-toolbar color="dark">
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
+    
       
-      <ion-list>
+      <ion-list >
         <ion-item><a href="/productos">Productos</a></ion-item>
         <ion-item><a href="/home">Menu</a></ion-item>
-
+         
       </ion-list>
+
     </ion-content>
   </ion-menu>
   <ion-grid>
 
-    <ion-row>
-      <ion-col>
-        <h1>Bienvenido {{usuario}}</h1>
-      </ion-col>
-    </ion-row>
-
   </ion-grid>
+
+
+
 </ion-content>
 
 <ion-router-outlet id="main"></ion-router-outlet>
