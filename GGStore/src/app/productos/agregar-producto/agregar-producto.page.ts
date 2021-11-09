@@ -14,7 +14,7 @@ export class AgregarProductoPage implements OnInit {
   ngOnInit() {
   }
 
-  agregarProducto(nombre,url,anio,genero,desarrolladora,distribuidora, comentario){
+  agregarProducto(nombre,url,anio,genero,desarrolladora,precio, comentario){
     var lista
     var listaGenero
     
@@ -33,7 +33,14 @@ export class AgregarProductoPage implements OnInit {
         listaGenero = null;
       }
     }
-    this.productoServicio.addProductos(nombre.value ,url.value,anio.value,listaGenero,desarrolladora.value,distribuidora.value, lista);
-    this.router.navigate(['/productos'])
+    this.productoServicio.addProductos(nombre.value ,url.value,anio.value,listaGenero,desarrolladora.value,precio.value, lista).subscribe(
+      (respuesta) => {
+        console.log(respuesta)
+        this.router.navigate(['/productos'])
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 }

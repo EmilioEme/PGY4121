@@ -5,6 +5,6 @@ export interface Producto{
     anio : string;
     genero : string[];
     desarrolladora : string;
-    distribuidora : string;
+    precio : number;
     comentarios : string[];
 }

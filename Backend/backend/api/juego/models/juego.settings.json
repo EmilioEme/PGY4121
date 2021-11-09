@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "juegos",
+  "info": {
+    "name": "Juego"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "imagenURL": {
+      "type": "text"
+    },
+    "anio": {
+      "type": "string"
+    },
+    "genero": {
+      "type": "text"
+    },
+    "desarrolladora": {
+      "type": "string"
+    },
+    "precio": {
+      "type": "biginteger"
+    },
+    "comentarios": {
+      "type": "text"
+    }
+  }
+}

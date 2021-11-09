@@ -9,23 +9,40 @@ import { Router } from '@angular/router';
 })
 export class ProductosPage implements OnInit {
 
-  private productos = []
+  private productos:any = []
   
 
   constructor(private serviceProd: ProductosService , private router: Router) { }
 
   ngOnInit() {
-    this.productos = this.serviceProd.getProductos();
+    this.serviceProd.getProductos().subscribe(
+      (resp) => {
+        this.productos = resp
+        console.log(resp)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
   ionViewWillEnter(){
-    this.productos = this.serviceProd.getProductos();
+    this.serviceProd.getProductos().subscribe(
+      (resp) => {
+        this.productos = resp
+        console.log(resp)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
   RedirectAgregar(){
     console.log('funciona!')
     this.router.navigate(['/agregar-producto'])
   }
+  
   volverHome(){
     this.router.navigate(['/home'])
   }

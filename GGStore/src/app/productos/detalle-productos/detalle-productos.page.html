@@ -5,14 +5,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-    <ion-title color="light">{{datos.nombre}}</ion-title>
+    <ion-title color="light">{{datos.Nombre}}</ion-title>
 
     <ion-buttons slot="end">
-
+      
       <ion-button (click)="eliminar()">
         <ion-icon name="skull-outline"></ion-icon>
       </ion-button>
-      
+
     </ion-buttons>
     
   </ion-toolbar>
@@ -36,7 +36,9 @@
 
     <ion-row>
       <ion-col>
-
+        <ion-text>
+          <p class="ion-text-center">${{datos.precio}}</p>
+        </ion-text>
         <ion-list class="dark-bg" *ngIf="datos.comentarios && datos.comentarios.length > 0; else SinComentarios">
           <ion-item *ngFor="let com of datos.comentarios">
             {{com}}
