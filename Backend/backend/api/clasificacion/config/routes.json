@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/juegos",
-      "handler": "juego.find",
+      "path": "/clasificacions",
+      "handler": "clasificacion.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/juegos/count",
-      "handler": "juego.count",
+      "path": "/clasificacions/count",
+      "handler": "clasificacion.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/juegos/:id",
-      "handler": "juego.findOne",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/juegos",
-      "handler": "juego.create",
+      "path": "/clasificacions",
+      "handler": "clasificacion.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/juegos/:id",
-      "handler": "juego.update",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/juegos/:id",
-      "handler": "juego.delete",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.delete",
       "config": {
         "policies": []
       }

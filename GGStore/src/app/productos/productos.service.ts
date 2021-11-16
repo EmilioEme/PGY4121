@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class ProductosService {
-
   
 
   constructor(private http:HttpClient) { }
@@ -44,4 +43,20 @@ export class ProductosService {
     return this.http.delete('http://localhost:1337/Juegos/' + prodID)
   }
 
+  updateProductos(idproducto: string, nombre: string, url: string, anio: string, genero: string[], desarrolladora: string, precio: number, comentario: string[]) {
+    
+    var productos =
+      {
+        
+        "nombre" : name,
+        "imagenURL" : url,
+        "anio" : anio,
+        "genero" : genero[0],
+        "desarrolladora" : desarrolladora,
+        "precio" : precio,
+        "comentarios" : comentario[0]
+      }
+
+    return this.http.put('http://localhost:1337/Juegos/' + idproducto, productos)
+  }
 }

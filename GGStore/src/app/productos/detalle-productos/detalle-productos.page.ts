@@ -12,6 +12,8 @@ export class DetalleProductosPage implements OnInit {
 
   datos : any = [];
 
+  private idProducto;
+
   constructor(private ActivatedRoute: ActivatedRoute, private ProdService: ProductosService,
             private Router: Router) { }
 
@@ -20,6 +22,8 @@ export class DetalleProductosPage implements OnInit {
     this.ActivatedRoute.paramMap.subscribe( paramMap => {
 
       const valor = paramMap.get('ProdId')
+
+      this.idProducto = valor;
       console.log("ID del producto: " + valor)
 
       this.ProdService.getProductosById(valor).subscribe(
@@ -50,5 +54,7 @@ export class DetalleProductosPage implements OnInit {
       }
     )
   }
-
+  actualizar(){
+    this.Router.navigate(['actualizar-producto/' + this.idProducto])
+  }
 }

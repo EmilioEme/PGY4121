@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "juegos",
   "info": {
-    "name": "Juego"
+    "name": "Juegos"
   },
   "options": {
     "increments": true,

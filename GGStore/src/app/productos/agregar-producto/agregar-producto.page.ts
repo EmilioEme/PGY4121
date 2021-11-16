@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductosService } from '../productos.service';
+import { ClasificacionService } from '../../clasificacion.service'
 
 @Component({
   selector: 'app-agregar-producto',
@@ -9,9 +10,22 @@ import { ProductosService } from '../productos.service';
 })
 export class AgregarProductoPage implements OnInit {
 
-  constructor(private productoServicio: ProductosService, private router: Router) { }
+  clasi: any = []
+  
+  constructor(private productoServicio: ProductosService, 
+    private router: Router, 
+    private clasificacion: ClasificacionService) { }
 
   ngOnInit() {
+    this.clasificacion.getTipoProducto().subscribe(
+
+      (respuesta) => {
+        this.clasi = respuesta
+      },
+      (error) => {
+        console.log("Error al cargar clasificacion")
+      }
+    );
   }
 
   agregarProducto(nombre,url,anio,genero,desarrolladora,precio, comentario){
