@@ -14,7 +14,7 @@ export class ActualizarProductoPage implements OnInit {
   private idproducto;
 
   constructor(private ActivatedRoute: ActivatedRoute, private ProdService: ProductosService,
-    private Router: Router) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.ActivatedRoute.paramMap.subscribe( paramMap => {
@@ -40,9 +40,9 @@ export class ActualizarProductoPage implements OnInit {
   }
   actualizarProducto(nombre,url,anio,genero,desarrolladora,precio,comentario){
 
-    this.ProdService.updateProductos(this.idproducto,nombre,url,anio,genero,desarrolladora,precio,comentario).subscribe(
-      (resp : any) => {
-        this.Router.navigate(['/productos'])
+    this.ProdService.updateProductos(this.idproducto,nombre.value,url.value,anio.value,genero,desarrolladora.value,precio.value,comentario).subscribe(
+      (resp) => {
+        this.router.navigate(['/productos'])
         console.log("Funciona el metodo Actualizar")
       },
       (error) => {

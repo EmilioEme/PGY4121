@@ -13,15 +13,17 @@
     <ion-col>
       <ion-card-content>
         <ion-input type="text" placeholder="Ingrese el Nombre" #nombre></ion-input>
-        <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>
+
+        <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input>
+        <!-- <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>  -->
         <ion-input type="text" placeholder="Ingrese el año de salida" #anio></ion-input>
         <ion-input type="text" placeholder="Ingrese el Género del Juego" #genero></ion-input>
         <ion-input type="text" placeholder="Ingrese la desarrolladora" #desarrolladora></ion-input>
         <ion-input type="number" placeholder="Ingrese el precio" #precio></ion-input>
         <ion-input type="text" placeholder="Ingrese un comentario" #comentario></ion-input>
 
-        <ion-select [compareWith]="compareWith">
-          <ion-select-option *ngFor="let c of clasi" [value]="c.id" #clasificacion>{{c.descripcion}}</ion-select-option>
+        <ion-select placeholder="Ingrese clasificacion"[compareWith]="compareWith">
+          <ion-select-option *ngFor="let c of clasi" [value]="c.id" #clasificacion>{{c.siglas}} ({{c.descripcion}})</ion-select-option>
         </ion-select>
 
         <ion-button color = "dark" (click)="agregarProducto(nombre,url,anio,genero,desarrolladora,precio,comentario)"> Agregar </ion-button>

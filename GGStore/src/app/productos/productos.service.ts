@@ -21,13 +21,12 @@ export class ProductosService {
 
   }
 
-  addProductos(name: string, imgURL: string, year: string, gen: string[], desa: string, prec: number, com: string[]){
+  addProductos(name: string, year: string, gen: string[], desa: string, prec: number, com: string[]){
 
     var productos =
       {
         
         "nombre" : name,
-        "imagenURL" : imgURL,
         "anio" : year,
         "genero" : gen[0],
         "desarrolladora" : desa,
@@ -48,7 +47,7 @@ export class ProductosService {
     var productos =
       {
         
-        "nombre" : name,
+        "nombre" : nombre,
         "imagenURL" : url,
         "anio" : anio,
         "genero" : genero[0],
