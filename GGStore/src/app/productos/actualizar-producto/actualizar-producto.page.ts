@@ -38,11 +38,11 @@ export class ActualizarProductoPage implements OnInit {
 
     })
   }
-  actualizarProducto(nombre,url,anio,genero,desarrolladora,precio,comentario){
+  actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url){
 
-    this.ProdService.updateProductos(this.idproducto,nombre.value,url.value,anio.value,genero,desarrolladora.value,precio.value,comentario).subscribe(
+    this.ProdService.updateProductos(this.idproducto,nombre.value,anio.value,genero.value,desarrolladora.value,precio.value,comentario.value, url.value).subscribe(
       (resp) => {
-        this.router.navigate(['/productos'])
+        this.router.navigate(['/productos/' + this.idproducto])
         console.log("Funciona el metodo Actualizar")
       },
       (error) => {

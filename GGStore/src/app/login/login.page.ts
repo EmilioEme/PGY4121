@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Navigation } from 'selenium-webdriver';
+import { ServicioService } from './servicio.service'
+
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Navigation } from 'selenium-webdriver';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private ser : ServicioService) { }
 
   ngOnInit() {
   }
@@ -18,11 +20,15 @@ export class LoginPage implements OnInit {
     
     var usuario = form.value ["name"]
     var contrasena = form.value ["password"]
-
-    if(usuario == "admin" && contrasena == "123"){
+    
+    for (let users in  this.ser.getUser()){
+      if(usuario == "admin" && contrasena == "123"){
        
-      localStorage.setItem("datosUsuario", usuario);
-      this.router.navigate(['/home'])
+        localStorage.setItem("datosUsuario", JSON.stringify(usuario));
+        localStorage.setItem("datosPass", JSON.stringify(contrasena));
+        this.router.navigate(['/home'])
+      }
     }
+    
   }
 }

@@ -30,35 +30,12 @@ export class AgregarProductoPage implements OnInit {
     );
   }
 
-  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario){
-    const axios = require('axios')
-    const STRAPI_BASE_URL = 'http://localhost:1337'
+  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL){
+    
 
+    
 
-    const datos = new FormData()
-
-    datos.append('files',this.archivo)
-    datos.append('ref', 'Juegos')
-    datos.append('refId','6')
-    datos.append('field', 'imagen')
-
-    axios.post(`${STRAPI_BASE_URL}/upload`,datos)
-
-    var lista = []
-    if(comentario.value!==""){
-      lista.push(comentario.value)
-    }else{
-      lista = null
-    }
-
-    var listaGenero = []
-    if(genero.value!==""){
-      listaGenero.push(genero.value)
-    }else{
-      listaGenero = null
-    }
-
-    this.productoServicio.addProductos(nombre.value ,anio.value, listaGenero, desarrolladora.value, precio.value, lista).subscribe(
+    this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, comentario.value, imagenURL.value).subscribe(
       (respuesta) => {
         console.log(respuesta)
         this.router.navigate(['/productos'])
@@ -69,7 +46,5 @@ export class AgregarProductoPage implements OnInit {
     )
   }
 
-  capturarImagen(event){
-    this.archivo = <File>event.target.files[0]
-  }
+  
 }

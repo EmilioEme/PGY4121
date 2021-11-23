@@ -30,17 +30,8 @@
     "comentarios": {
       "type": "text"
     },
-    "imagen": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+    "imagenURL": {
+      "type": "text"
     }
   }
 }

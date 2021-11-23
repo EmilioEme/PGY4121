@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_users",
+  "info": {
+    "name": "AuthUser",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}

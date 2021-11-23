@@ -18,6 +18,7 @@ export class ProductosPage implements OnInit {
     this.serviceProd.getProductos().subscribe(
       (resp) => {
         this.productos = resp
+        
         console.log(resp)
       },
       (error) => {

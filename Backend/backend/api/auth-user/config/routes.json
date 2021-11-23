@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/auth-users",
+      "handler": "auth-user.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/auth-users/count",
+      "handler": "auth-user.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/auth-users/:id",
+      "handler": "auth-user.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth-users",
+      "handler": "auth-user.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/auth-users/:id",
+      "handler": "auth-user.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth-users/:id",
+      "handler": "auth-user.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
