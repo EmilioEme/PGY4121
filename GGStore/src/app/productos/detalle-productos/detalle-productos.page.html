@@ -47,17 +47,38 @@
         <ion-text>
           <p class="ion-text-center">${{datos.precio}}</p>
         </ion-text>
+
+        <ion-item class="dark-bg" color="medium">
+          <p>Clasificacion: {{datos.clasificacion}}</p>
+        </ion-item>
+ 
+          <ion-item class="dark-bg" *ngIf="datos.genero && datos.genero.length > 0; else SinGenero" color="medium">
+            Genero: {{datos.genero}}
+          </ion-item>
+
+
         <ion-list class="dark-bg" *ngIf="datos.comentarios && datos.comentarios.length > 0; else SinComentarios">
           <ion-item color="medium">
             {{datos.comentarios}}
           </ion-item>
         </ion-list>
+
         
         <ng-template #SinComentarios>
 
           <ion-text>
 
             <p class="ion-text-center">Sin Comentarios</p>
+
+          </ion-text>
+
+        </ng-template>
+
+        <ng-template #SinGenero>
+
+          <ion-text>
+
+            <p class="ion-text-center">Sin Generos</p>
 
           </ion-text>
 

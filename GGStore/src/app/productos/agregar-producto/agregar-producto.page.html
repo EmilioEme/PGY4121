@@ -23,7 +23,31 @@
          <ion-item>
           <ion-input type="text" placeholder="Ingrese el Género del Juego" #genero></ion-input>
          </ion-item>
+
+         <ion-item>
+            <ion-label>
+              Disponible?
+             <ion-checkbox #disponible></ion-checkbox>
+            </ion-label>
+         </ion-item>
         
+         <ion-item>
+           <ion-radio-group #favorito>
+            <ion-label>Favorito</ion-label>
+           
+
+            <ion-item>
+              <ion-label>Si</ion-label>
+              <ion-radio slot="start" value="Si"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>No</ion-label>
+              <ion-radio slot="start" value="No"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+         </ion-item>
+
          <ion-item>
           <ion-input type="text" placeholder="Ingrese la desarrolladora" #desarrolladora></ion-input>
          </ion-item>
@@ -52,7 +76,7 @@
           </ion-select>
          </ion-item>
 
-        <ion-button color = "warning" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url, clasificacion)"> Agregar </ion-button>
+        <ion-button color = "warning" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url, clasificacion, favorito, disponible)"> Agregar </ion-button>
 
         
       </ion-card-content>

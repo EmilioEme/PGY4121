@@ -35,6 +35,12 @@
     },
     "clasificacion": {
       "type": "string"
+    },
+    "favorito": {
+      "type": "string"
+    },
+    "disponible": {
+      "type": "boolean"
     }
   }
 }

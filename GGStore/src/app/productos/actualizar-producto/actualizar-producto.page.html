@@ -26,6 +26,30 @@
           </ion-item>
           
           <ion-item>
+            <ion-label>
+              Disponible?
+             <ion-checkbox #disponible></ion-checkbox>
+            </ion-label>
+         </ion-item>
+        
+         <ion-item>
+           <ion-radio-group #favorito>
+            <ion-label>Favorito</ion-label>
+           
+
+            <ion-item>
+              <ion-label>Si</ion-label>
+              <ion-radio slot="start" value="Si"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>No</ion-label>
+              <ion-radio slot="start" value="No"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+         </ion-item>
+
+          <ion-item>
             <ion-input type="text" placeholder="Ingrese la desarrolladora" [(ngModel)]="datos.desarrolladora" #desarrolladora></ion-input>
           </ion-item>
           
@@ -42,12 +66,12 @@
           </ion-item>
 
           <ion-item>
-            <ion-select placeholder="Ingrese clasificacion"[compareWith]="compareWith">
-              <ion-select-option *ngFor="let c of clasi" [value]="c.siglas" #clasificacion>{{c.siglas}} ({{c.descripcion}})</ion-select-option>
+            <ion-select selectedtext="datos.clasificacion" placeholder="Ingrese clasificacion"[compareWith]="compareWith" #clasificacion>
+              <ion-select-option *ngFor="let c of clasi" [value]="c.siglas" >{{c.siglas}} ({{c.descripcion}})</ion-select-option>
             </ion-select>
           </ion-item>
           
-          <ion-button color = "dark" (click)="actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url)"> Actualizar </ion-button>
+          <ion-button color = "dark" (click)="actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url, clasificacion,favorito,disponible)"> Actualizar </ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>

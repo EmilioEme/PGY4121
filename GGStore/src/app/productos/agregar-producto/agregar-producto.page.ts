@@ -30,12 +30,10 @@ export class AgregarProductoPage implements OnInit {
     );
   }
 
-  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL, clasif){
+  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL, clasif, favorito, disponible){
     
-
-    
-
-    this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, comentario.value, imagenURL.value, clasif.value).subscribe(
+    this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, 
+      comentario.value, imagenURL.value, clasif.value, favorito.value, disponible.checked).subscribe(
       (respuesta) => {
         console.log(respuesta)
         console.log(clasif)

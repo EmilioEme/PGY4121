@@ -21,7 +21,8 @@ export class ProductosService {
 
   }
 
-  addProductos(name: string, year: string, gen: string, desa: string, prec: number, com: string, imagenURL: string, clasificacion: string){
+  addProductos(name: string, year: string, gen: string, desa: string, prec: number, 
+    com: string, imagenURL: string, clasificacion: string, favorito : string, disponible : boolean){
 
     var productos =
       {
@@ -33,7 +34,9 @@ export class ProductosService {
         "precio" : prec,
         "comentarios" : com,
         "imagenURL": imagenURL,
-        "clasificacion": clasificacion
+        "clasificacion": clasificacion,
+        "favorito" : favorito,
+        "disponible" : disponible
       }
     return this.http.post('http://localhost:1337/Juegos/', productos)
     
@@ -44,7 +47,8 @@ export class ProductosService {
     return this.http.delete('http://localhost:1337/Juegos/' + prodID)
   }
 
-  updateProductos(idproducto: string, nombre: string, anio: string, genero: string, desarrolladora: string, precio: number, comentario: string, url: string) {
+  updateProductos(idproducto: string, nombre: string, anio: string, genero: string, desarrolladora: string, 
+    precio: number, comentario: string, url: string, clasificacion : string, favorito : string, disponible : boolean) {
     
     var productos =
       {
@@ -55,7 +59,10 @@ export class ProductosService {
         "desarrolladora" : desarrolladora,
         "precio" : precio,
         "comentarios" : comentario,
-        "imagenURL" : url
+        "imagenURL" : url,
+        "clasificacion" : clasificacion,
+        "favorito" : favorito,
+        "disponible" : disponible
       }
 
     return this.http.put('http://localhost:1337/Juegos/' + idproducto, productos)
