@@ -21,7 +21,7 @@ export class ProductosService {
 
   }
 
-  addProductos(name: string, year: string, gen: string, desa: string, prec: number, com: string, imagenURL: string){
+  addProductos(name: string, year: string, gen: string, desa: string, prec: number, com: string, imagenURL: string, clasificacion: string){
 
     var productos =
       {
@@ -32,7 +32,8 @@ export class ProductosService {
         "desarrolladora" : desa,
         "precio" : prec,
         "comentarios" : com,
-        "imagenURL": imagenURL
+        "imagenURL": imagenURL,
+        "clasificacion": clasificacion
       }
     return this.http.post('http://localhost:1337/Juegos/', productos)
     

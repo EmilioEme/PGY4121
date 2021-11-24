@@ -30,14 +30,15 @@ export class AgregarProductoPage implements OnInit {
     );
   }
 
-  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL){
+  agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL, clasif){
     
 
     
 
-    this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, comentario.value, imagenURL.value).subscribe(
+    this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, comentario.value, imagenURL.value, clasif.value).subscribe(
       (respuesta) => {
         console.log(respuesta)
+        console.log(clasif)
         this.router.navigate(['/productos'])
       },
       (error) => {

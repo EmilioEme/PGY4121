@@ -32,6 +32,9 @@
     },
     "imagenURL": {
       "type": "text"
+    },
+    "clasificacion": {
+      "type": "string"
     }
   }
 }

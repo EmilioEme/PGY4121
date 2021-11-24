@@ -7,27 +7,54 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background" color="medium">
+<ion-content class="background" color="dark">
 
   <ion-row>
     <ion-col>
       <ion-card-content>
-        <ion-input type="text" placeholder="Ingrese el Nombre" #nombre></ion-input>
-
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese el Nombre" #nombre></ion-input>
+        </ion-item>
         <!-- <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input> -->
-         
-        <ion-input type="text" placeholder="Ingrese el año de salida" #anio></ion-input>
-        <ion-input type="text" placeholder="Ingrese el Género del Juego" #genero></ion-input>
-        <ion-input type="text" placeholder="Ingrese la desarrolladora" #desarrolladora></ion-input>
-        <ion-input type="number" placeholder="Ingrese el precio" #precio></ion-input>
-        <ion-input type="text" placeholder="Ingrese un comentario" #comentario></ion-input>
-        <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>
+        <ion-item>
+          <ion-input type="text" placeholder="Ingrese el año de salida" #anio></ion-input>
+        </ion-item>
+        
+         <ion-item>
+          <ion-input type="text" placeholder="Ingrese el Género del Juego" #genero></ion-input>
+         </ion-item>
+        
+         <ion-item>
+          <ion-input type="text" placeholder="Ingrese la desarrolladora" #desarrolladora></ion-input>
+         </ion-item>
+        
+         <ion-item>
+          <ion-input type="number" placeholder="Ingrese el precio" #precio></ion-input>
+         </ion-item>
+        
+         <ion-item>
+          <ion-textarea type="text" placeholder="Ingrese un comentario" #comentario></ion-textarea>
+         </ion-item>
+        
+         <ion-item>
+          <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>
+         </ion-item>
 
-        <!-- <ion-select placeholder="Ingrese clasificacion"[compareWith]="compareWith">
-          <ion-select-option *ngFor="let c of clasi" [value]="c.id" #clasificacion>{{c.siglas}} ({{c.descripcion}})</ion-select-option>
-        </ion-select> -->
+        <!-- TODO
+        Como guardar valores correctamente en #clasificacion
+         -->
+        
+         <ion-item>
+          <ion-select  placeholder="Ingrese clasificacion" [compareWith]="compareWith" #clasificacion>
+            
+            <ion-select-option *ngFor="let c of clasi" [value]="c.siglas" >{{c.siglas}} ({{c.descripcion}})</ion-select-option>
+            
+          </ion-select>
+         </ion-item>
 
-        <ion-button color = "dark" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url)"> Agregar </ion-button>
+        <ion-button color = "warning" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url, clasificacion)"> Agregar </ion-button>
+
+        
       </ion-card-content>
     </ion-col>
   </ion-row>

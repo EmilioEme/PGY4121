@@ -7,4 +7,5 @@ export interface Producto{
     desarrolladora : string;
     precio : number;
     comentarios : string;
+    clasificacion : string;
 }

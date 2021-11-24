@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute , Router} from '@angular/router';
 import { ProductosService } from '../productos.service';
+import { ClasificacionService } from '../../clasificacion.service'
 
 @Component({
   selector: 'app-actualizar-producto',
@@ -8,7 +9,7 @@ import { ProductosService } from '../productos.service';
   styleUrls: ['./actualizar-producto.page.scss'],
 })
 export class ActualizarProductoPage implements OnInit {
-
+  clasi : any = []
   datos : any = [];
 
   private idproducto;
