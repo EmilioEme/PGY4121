@@ -21,7 +21,7 @@ export class ProductosService {
 
   }
 
-  addProductos(name: string, year: string, gen: string, desa: string, prec: number, 
+  addProductos(name: string, year: number, gen: string, desa: string, prec: number, 
     com: string, imagenURL: string, clasificacion: string, favorito : string, disponible : boolean){
 
     var productos =
@@ -47,7 +47,7 @@ export class ProductosService {
     return this.http.delete('http://localhost:1337/Juegos/' + prodID)
   }
 
-  updateProductos(idproducto: string, nombre: string, anio: string, genero: string, desarrolladora: string, 
+  updateProductos(idproducto: string, nombre: string, anio: number, genero: string, desarrolladora: string, 
     precio: number, comentario: string, url: string, clasificacion : string, favorito : string, disponible : boolean) {
     
     var productos =

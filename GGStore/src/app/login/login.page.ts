@@ -13,7 +13,18 @@ export class LoginPage implements OnInit {
 
   constructor(private router : Router, private ser : ServicioService) { }
 
+
+  private usuarios : any = []
+
   ngOnInit() {
+    this.ser.getUser().subscribe(
+      (response) => {
+        this.usuarios = response
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
   login(form) {
@@ -21,14 +32,21 @@ export class LoginPage implements OnInit {
     var usuario = form.value ["name"]
     var contrasena = form.value ["password"]
     
-    for (let users in  this.ser.getUser()){
-      if(usuario == "admin" && contrasena == "123"){
-       
+    this.usuarios.forEach(user => {
+      console.log(user.username)
+      console.log(user.password)
+      
+      if(usuario === user.username && contrasena === user.password){
+      
         localStorage.setItem("datosUsuario", JSON.stringify(usuario));
         localStorage.setItem("datosPass", JSON.stringify(contrasena));
         this.router.navigate(['/home'])
+        
+      }else{
+        console.log("No existe ese usuario")
       }
-    }
+    });
+    
     
   }
 }

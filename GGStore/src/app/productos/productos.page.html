@@ -11,8 +11,13 @@
     <ion-item class="background" color="medium" *ngFor="let p of productos" [routerLink] = "['/productos', p.id ]">
 
         <ion-avatar slot="start">
-          <ion-img [src]="p.imagenURL"></ion-img>
+          <ion-img *ngIf="p.imagenURL.length>0; else Error404" [src]="p.imagenURL"></ion-img>
         </ion-avatar>
+
+        <ng-template #Error404>
+          <ion-img src="https://image.freepik.com/vector-gratis/error-404-plantilla-diseno-error-caracter-sitio-web_114341-24.jpg"></ion-img>
+        </ng-template>
+        
 
         <ion-label>{{p.nombre}}</ion-label>
 

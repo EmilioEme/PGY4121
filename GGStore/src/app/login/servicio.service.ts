@@ -9,10 +9,10 @@ export class ServicioService {
   constructor(private http : HttpClient) { }
 
   getUser(){
-    return this.http.get('http://localhost:1337/auth-users')
+    return this.http.get('http://localhost:1337/users')
   }
   getUserByID(prodID : string){
-    return this.http.get('http://localhost:1337/auth-users/' + prodID)
+    return this.http.get('http://localhost:1337/users/' + prodID)
   }
   
 }

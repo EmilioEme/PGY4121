@@ -32,7 +32,10 @@
 
     <ion-row>
       <ion-col>
-        <ion-img [src]="datos.imagenURL"></ion-img>
+        <ion-img *ngIf="datos.imagenURL != ''; else Error404" [src]="datos.imagenURL"></ion-img>
+        <ng-template #Error404>
+          <ion-img src="https://image.freepik.com/vector-gratis/error-404-plantilla-diseno-error-caracter-sitio-web_114341-24.jpg"></ion-img>
+        </ng-template>
       </ion-col>
     </ion-row>
 
@@ -44,9 +47,14 @@
 
     <ion-row>
       <ion-col>
-        <ion-text>
+        <ion-text *ngIf="datos.precio>0; else precioGratis">
           <p class="ion-text-center">${{datos.precio}}</p>
         </ion-text>
+
+        <ng-template #precioGratis>
+          <p class="ion-text-center">Gratis :D</p>
+        </ng-template>
+        
 
         <ion-item class="dark-bg" color="medium">
           <p>Clasificacion: {{datos.clasificacion}}</p>

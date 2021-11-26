@@ -17,7 +17,7 @@
         </ion-item>
         <!-- <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input> -->
         <ion-item>
-          <ion-input type="text" placeholder="Ingrese el año de salida" #anio></ion-input>
+          <ion-input type="number" placeholder="Ingrese el año de salida" #anio></ion-input>
         </ion-item>
         
          <ion-item>
@@ -69,7 +69,7 @@
          -->
         
          <ion-item>
-          <ion-select  placeholder="Ingrese clasificacion" [compareWith]="compareWith" #clasificacion>
+          <ion-select placeholder="Ingrese clasificacion" [compareWith]="compareWith" #clasificacion>
             
             <ion-select-option *ngFor="let c of clasi" [value]="c.siglas" >{{c.siglas}} ({{c.descripcion}})</ion-select-option>
             

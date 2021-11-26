@@ -13,10 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "nombre": {
-      "type": "string"
-    },
-    "anio": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "genero": {
       "type": "text"
@@ -41,6 +40,11 @@
     },
     "disponible": {
       "type": "boolean"
+    },
+    "anio": {
+      "type": "integer",
+      "max": 9999,
+      "required": true
     }
   }
 }

@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "auth_users",
+  "collectionName": "usuarios",
   "info": {
-    "name": "AuthUser",
-    "description": ""
+    "name": "usuario"
   },
   "options": {
     "increments": true,
