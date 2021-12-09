@@ -22,7 +22,7 @@ export class ProductosService {
   }
 
   addProductos(name: string, year: number, gen: string, desa: string, prec: number, 
-    com: string, imagenURL: string, clasificacion: string, favorito : string, disponible : boolean){
+    com: string, clasificacion: string, favorito : string, disponible : boolean){
 
     var productos =
       {
@@ -33,7 +33,6 @@ export class ProductosService {
         "desarrolladora" : desa,
         "precio" : prec,
         "comentarios" : com,
-        "imagenURL": imagenURL,
         "clasificacion": clasificacion,
         "favorito" : favorito,
         "disponible" : disponible
@@ -48,7 +47,7 @@ export class ProductosService {
   }
 
   updateProductos(idproducto: string, nombre: string, anio: number, genero: string, desarrolladora: string, 
-    precio: number, comentario: string, url: string, clasificacion : string, favorito : string, disponible : boolean) {
+    precio: number, comentario: string, clasificacion : string, favorito : string, disponible : boolean) {
     
     var productos =
       {
@@ -59,7 +58,6 @@ export class ProductosService {
         "desarrolladora" : desarrolladora,
         "precio" : precio,
         "comentarios" : comentario,
-        "imagenURL" : url,
         "clasificacion" : clasificacion,
         "favorito" : favorito,
         "disponible" : disponible

@@ -32,7 +32,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-img *ngIf="datos.imagenURL != ''; else Error404" [src]="datos.imagenURL"></ion-img>
+        <ion-img *ngIf="datos.imagen != null; else Error404" [src]="'http://localhost:1337' + datos.imagen.url"></ion-img>
         <ng-template #Error404>
           <ion-img src="https://image.freepik.com/vector-gratis/error-404-plantilla-diseno-error-caracter-sitio-web_114341-24.jpg"></ion-img>
         </ng-template>

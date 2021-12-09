@@ -4,6 +4,7 @@ import { ProductosService } from '../productos.service';
 import { ClasificacionService } from '../../clasificacion.service'
 import { AlertController } from '@ionic/angular'
 
+declare var require: any
 @Component({
   selector: 'app-actualizar-producto',
   templateUrl: './actualizar-producto.page.html',
@@ -13,6 +14,7 @@ export class ActualizarProductoPage implements OnInit {
   clasi : any = []
   datos : any = [];
 
+  private archivo : File = null
   private idproducto;
 
   constructor(private ActivatedRoute: ActivatedRoute, private ProdService: ProductosService,
@@ -50,12 +52,31 @@ export class ActualizarProductoPage implements OnInit {
       }
     )
   }
-  async actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url,clasificacion,favorito,disponible){
+
+  capturarImagen(event){
+    this.archivo = <File>event.target.files[0]
+  }
+
+  async actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,clasificacion,favorito,disponible){
+
+    const STRAPI_API = 'http://localhost:1337';
+
+
+    const axios = require('axios')
+
+    const datos = new FormData()
+
+    datos.append('files',this.archivo)
+    datos.append('ref','Juego')
+    datos.append('refId',this.idproducto)
+    datos.append('field','imagen')
+
+    axios.put(`${STRAPI_API}/upload/files/${this.idproducto}`,datos)
 
     if(nombre.value.length>0 && desarrolladora.value.length>0 && clasificacion.value!=null && anio.value>0){
 
       this.ProdService.updateProductos(this.idproducto,nombre.value,anio.value,genero.value,desarrolladora.value,precio.value,
-      comentario.value, url.value, clasificacion.value, favorito.value,disponible.checked).subscribe(
+      comentario.value, clasificacion.value, favorito.value,disponible.checked).subscribe(
       (resp) => {
         this.router.navigate(['/productos/' + this.idproducto])
         console.log("Funciona el metodo Actualizar")

@@ -18,7 +18,7 @@ export class ProductosPage implements OnInit {
     this.serviceProd.getProductos().subscribe(
       (resp) => {
         this.productos = resp
-        
+        localStorage.setItem("id",this.productos[this.productos.length-1].id + 1)
         console.log(resp)
       },
       (error) => {

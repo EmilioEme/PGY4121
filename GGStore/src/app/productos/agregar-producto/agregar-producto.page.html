@@ -15,7 +15,9 @@
         <ion-item>
           <ion-input type="text" placeholder="Ingrese el Nombre" #nombre></ion-input>
         </ion-item>
-        <!-- <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input> -->
+
+        <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input>
+
         <ion-item>
           <ion-input type="number" placeholder="Ingrese el año de salida" #anio></ion-input>
         </ion-item>
@@ -60,13 +62,11 @@
           <ion-textarea type="text" placeholder="Ingrese un comentario" #comentario></ion-textarea>
          </ion-item>
         
-         <ion-item>
+         <!-- <ion-item>
           <ion-input type="text" placeholder="Ingrese la URL de Imagen" #url></ion-input>
-         </ion-item>
+         </ion-item> -->
 
-        <!-- TODO
-        Como guardar valores correctamente en #clasificacion
-         -->
+        
         
          <ion-item>
           <ion-select placeholder="Ingrese clasificacion" [compareWith]="compareWith" #clasificacion>
@@ -76,7 +76,7 @@
           </ion-select>
          </ion-item>
 
-        <ion-button color = "warning" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario,url, clasificacion, favorito, disponible)"> Agregar </ion-button>
+        <ion-button color = "warning" (click)="agregarProducto(nombre,anio,genero,desarrolladora,precio,comentario, clasificacion, favorito, disponible)"> Agregar </ion-button>
 
         
       </ion-card-content>

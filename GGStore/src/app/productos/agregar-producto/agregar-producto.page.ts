@@ -4,6 +4,7 @@ import { ProductosService } from '../productos.service';
 import { ClasificacionService } from '../../clasificacion.service'
 import { AlertController } from '@ionic/angular'
 
+
 declare var require: any
 @Component({
   selector: 'app-agregar-producto',
@@ -12,8 +13,8 @@ declare var require: any
 })
 export class AgregarProductoPage implements OnInit {
 
-  clasi: any = []
-
+  clasi: any = [];
+  
   private archivo : File = null;
   
   constructor(private productoServicio: ProductosService, 
@@ -32,13 +33,30 @@ export class AgregarProductoPage implements OnInit {
       }
     );
   }
-  
-  async agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, imagenURL, clasif, favorito, disponible){
-    
+
+  capturarImagen(event){
+    this.archivo = <File>event.target.files[0]
+  }
+
+  async agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, clasif, favorito, disponible){
+    const STRAPI_API = 'http://localhost:1337';
+
+
+    const axios = require('axios')
+
+    const datos = new FormData()
+
+    datos.append('files',this.archivo)
+    datos.append('ref','Juego')
+    datos.append('refId',localStorage.getItem("id"))
+    datos.append('field','imagen')
+
+    axios.post(`${STRAPI_API}/upload`,datos)
+
     if(nombre.value.length>0 && desarrolladora.value.length>0 && clasif.value!=null && anio.value>0){
 
       this.productoServicio.addProductos(nombre.value ,anio.value, genero.value, desarrolladora.value, precio.value, 
-        comentario.value, imagenURL.value, clasif.value, favorito.value, disponible.checked).subscribe(
+        comentario.value, clasif.value, favorito.value, disponible.checked).subscribe(
         (respuesta) => {
           console.log(respuesta)
           console.log(clasif)
@@ -53,7 +71,7 @@ export class AgregarProductoPage implements OnInit {
         cssClass: 'addProductoError',
         header: 'No se pudo agregar el producto',
         subHeader: 'Campos obligatorios:',
-        message: 'Nombre, Año, Desarrolladora, Clasificacion',
+        message: 'Nombre, Año, Desarrolladora, Clasificacion, Imagen',
         buttons: ['OK']
         }
       );
