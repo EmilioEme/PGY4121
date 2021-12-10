@@ -59,7 +59,7 @@ export class ActualizarProductoPage implements OnInit {
 
   async actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario,clasificacion,favorito,disponible){
 
-    const STRAPI_API = 'http://localhost:1337';
+    const STRAPI_API = 'https://proyectogear.herokuapp.com';
 
 
     const axios = require('axios')

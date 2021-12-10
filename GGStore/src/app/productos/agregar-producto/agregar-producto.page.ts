@@ -39,7 +39,7 @@ export class AgregarProductoPage implements OnInit {
   }
 
   async agregarProducto(nombre,anio,genero,desarrolladora,precio, comentario, clasif, favorito, disponible){
-    const STRAPI_API = 'http://localhost:1337';
+    const STRAPI_API = 'https://proyectogear.herokuapp.com';
 
 
     const axios = require('axios')
