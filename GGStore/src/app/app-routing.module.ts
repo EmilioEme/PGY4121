@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { DetalleProductosPageModule } from './productos/detalle-productos/detalle-productos.module';
 
 const routes: Routes = [
   {
@@ -17,7 +18,24 @@ const routes: Routes = [
   },
   {
     path: 'productos',
-    loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+    children: [
+      {
+        path:"",
+        loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+      },
+      {
+        path: ":ProdId",
+        loadChildren: () => import('./productos/detalle-productos/detalle-productos.module').then( m=> DetalleProductosPageModule) 
+      }
+    ]
+  },
+  {
+    path: 'agregar-producto',
+    loadChildren: () => import('./productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
+  },
+  {
+    path: 'actualizar-producto/:ProdId',
+    loadChildren: () => import('./productos/actualizar-producto/actualizar-producto.module').then( m => m.ActualizarProductoPageModule)
   },
 ];
 

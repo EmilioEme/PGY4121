@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>productos</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title color="light">Videojuegos Disponibles</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  color="dark">
+  
+  <ion-list class="dark-bg">
+
+    <ion-item class="background" color="medium" *ngFor="let p of productos" [routerLink] = "['/productos', p.id ]">
+
+        <ion-avatar slot="start">
+          <ion-img *ngIf="p.imagen != null; else Error404" [src]="'http://localhost:1337' + p.imagen.url"></ion-img>
+        </ion-avatar>
+
+        <ng-template #Error404>
+          <ion-img src="https://image.freepik.com/vector-gratis/error-404-plantilla-diseno-error-caracter-sitio-web_114341-24.jpg"></ion-img>
+        </ng-template>
+        
+
+        <ion-label>{{p.nombre}}</ion-label>
+
+      </ion-item>
+
+  </ion-list>
+
+  <ion-fab vertical = "bottom" horizontal = "end" slot = "fixed">
+    <ion-fab-button color = "warning" (click)="RedirectAgregar()">
+      <ion-icon name="medkit-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+
+  <ion-fab vertical = "bottom" horizontal = "start" slot = "fixed">
+    <ion-fab-button color = "warning" (click)="volverHome()">
+      <ion-icon name="arrow-undo-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

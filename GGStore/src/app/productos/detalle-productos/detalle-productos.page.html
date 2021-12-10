@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="light">{{datos.Nombre}}</ion-title>
+
+    <ion-buttons slot="end">
+      
+      <ion-button (click)="actualizar()">
+        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      
+      <ion-button (click)="eliminar()">
+        <ion-icon name="skull-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" color="dark">
+    
+  <ion-grid class="ion-no-padding">
+
+    <ion-row>
+      <ion-col>
+        <ion-img *ngIf="datos.imagen != null; else Error404" [src]="'http://localhost:1337' + datos.imagen.url"></ion-img>
+        <ng-template #Error404>
+          <ion-img src="https://image.freepik.com/vector-gratis/error-404-plantilla-diseno-error-caracter-sitio-web_114341-24.jpg"></ion-img>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{datos.nombre}} ({{datos.anio}})</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-text *ngIf="datos.precio>0; else precioGratis">
+          <p class="ion-text-center">${{datos.precio}}</p>
+        </ion-text>
+
+        <ng-template #precioGratis>
+          <p class="ion-text-center">Gratis :D</p>
+        </ng-template>
+        
+
+        <ion-item class="dark-bg" color="medium">
+          <p>Clasificacion: {{datos.clasificacion}}</p>
+        </ion-item>
+ 
+          <ion-item class="dark-bg" *ngIf="datos.genero && datos.genero.length > 0; else SinGenero" color="medium">
+            Genero: {{datos.genero}}
+          </ion-item>
+
+
+        <ion-list class="dark-bg" *ngIf="datos.comentarios && datos.comentarios.length > 0; else SinComentarios">
+          <ion-item color="medium">
+            {{datos.comentarios}}
+          </ion-item>
+        </ion-list>
+
+        
+        <ng-template #SinComentarios>
+
+          <ion-text>
+
+            <p class="ion-text-center">Sin Comentarios</p>
+
+          </ion-text>
+
+        </ng-template>
+
+        <ng-template #SinGenero>
+
+          <ion-text>
+
+            <p class="ion-text-center">Sin Generos</p>
+
+          </ion-text>
+
+        </ng-template>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>

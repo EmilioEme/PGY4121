@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/clasificacions",
+      "handler": "clasificacion.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/clasificacions/count",
+      "handler": "clasificacion.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clasificacions",
+      "handler": "clasificacion.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/clasificacions/:id",
+      "handler": "clasificacion.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

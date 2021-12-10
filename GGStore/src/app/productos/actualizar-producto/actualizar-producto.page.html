@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/productos"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Modificar producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-row>
+    <ion-col>
+      
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-input type="text" placeholder="Ingrese el Nombre" [(ngModel)]="datos.nombre" #nombre></ion-input>
+          </ion-item>
+
+          <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImagen($event)"></ion-input>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Ingrese el año de salida" [(ngModel)]="datos.anio" #anio></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="text" placeholder="Ingrese el Género del Juego" [(ngModel)]="datos.genero" #genero></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>
+              Disponible?
+             <ion-checkbox [(ngModel)]="datos.disponible" #disponible></ion-checkbox>
+            </ion-label>
+         </ion-item>
+        
+         <ion-item>
+           <ion-radio-group [(ngModel)]="datos.favorito" #favorito>
+            <ion-label>Favorito</ion-label>
+           
+
+            <ion-item>
+              <ion-label>Si</ion-label>
+              <ion-radio slot="start" value="Si"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>No</ion-label>
+              <ion-radio slot="start" value="No"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+         </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Ingrese la desarrolladora" [(ngModel)]="datos.desarrolladora" #desarrolladora></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="number" placeholder="Ingrese el precio" [(ngModel)]="datos.precio" #precio></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-textarea type="text" placeholder="Ingrese un comentario" [(ngModel)]="datos.comentarios" #comentario></ion-textarea>
+          </ion-item>
+          
+          <!-- <ion-item>
+            <ion-input type="text" placeholder="Ingrese la URL de Imagen" [(ngModel)]="datos.imagenURL" #url></ion-input>
+          </ion-item> -->
+
+          <ion-item>
+            <ion-select [(ngModel)]="datos.clasificacion" placeholder="Ingrese clasificacion"[compareWith]="compareWith" #clasificacion>
+              <ion-select-option *ngFor="let c of clasi" [value]="c.siglas" >{{c.siglas}} ({{c.descripcion}})</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-button color = "dark" (click)="actualizarProducto(nombre,anio,genero,desarrolladora,precio,comentario, clasificacion,favorito,disponible)"> Actualizar </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
