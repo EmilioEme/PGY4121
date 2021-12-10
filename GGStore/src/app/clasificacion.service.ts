@@ -9,6 +9,6 @@ export class ClasificacionService {
   constructor(private http:HttpClient) { }
 
   getTipoProducto(){
-    return this.http.get('http://localhost:1337/Clasificacions/')
+    return this.http.get('https://proyectogear.herokuapp.com/Clasificacions/')
   }
 }

@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     var usuario = form.value ["name"]
     var contrasena = form.value ["password"]
     
-    axios.post('http://localhost:1337/auth/local', {
+    axios.post('https://proyectogear.herokuapp.com/auth/local', {
       identifier: usuario,
       password: contrasena,
     })

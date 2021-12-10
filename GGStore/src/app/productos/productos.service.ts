@@ -11,13 +11,13 @@ export class ProductosService {
 
   getProductos(){
 
-    return this.http.get('http://localhost:1337/Juegos')
+    return this.http.get('https://proyectogear.herokuapp.com/Juegos')
 
   }
 
   getProductosById(prodID : string){
 
-    return this.http.get('http://localhost:1337/Juegos/' + prodID)
+    return this.http.get('https://proyectogear.herokuapp.com/Juegos/' + prodID)
 
   }
 
@@ -37,13 +37,13 @@ export class ProductosService {
         "favorito" : favorito,
         "disponible" : disponible
       }
-    return this.http.post('http://localhost:1337/Juegos/', productos)
+    return this.http.post('https://proyectogear.herokuapp.com/Juegos/', productos)
     
   }
 
   deleteProductos(prodID: string){
 
-    return this.http.delete('http://localhost:1337/Juegos/' + prodID)
+    return this.http.delete('https://proyectogear.herokuapp.com/Juegos/' + prodID)
   }
 
   updateProductos(idproducto: string, nombre: string, anio: number, genero: string, desarrolladora: string, 
@@ -63,6 +63,6 @@ export class ProductosService {
         "disponible" : disponible
       }
 
-    return this.http.put('http://localhost:1337/Juegos/' + idproducto, productos)
+    return this.http.put('https://proyectogear.herokuapp.com/Juegos/' + idproducto, productos)
   }
 }
